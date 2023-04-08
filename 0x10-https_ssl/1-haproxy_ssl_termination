@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+# Terminating SSL on HAproxy.
+
 global
         log /dev/log    local0
 	stats socket /run/haproxy/admin.sock mode 660 level admin
