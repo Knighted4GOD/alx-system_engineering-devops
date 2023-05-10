@@ -1,6 +1,7 @@
-# Fixes bad `phpp` extensions to `php` in the WordPress file `wp-settings.php`.
+#a puppet script to replace phpp with php
 
-exec { 'fix-wordpress':
-  command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
-  path    => '/usr/local/bin/:/bin/'
+$file_path = '/var/www/html/wp-settings.php'
+exec { 'replace_line':
+  command => "sed -i 's/phpp/php/g' ${file_path}",
+  path    => ['/bin','/usr/bin']
 }
